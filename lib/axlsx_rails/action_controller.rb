@@ -5,7 +5,7 @@ end
 
 ActionController::Renderers.add :xlsx do |filename, options|
   unless formats.include?(:xlsx) || Rails.version < '3.2'
-    formats << :xlsx
+    formats.unshift(:xlsx)
   end
 
   if filename =~ /^\/([^\/]+)\/(.+)$/
